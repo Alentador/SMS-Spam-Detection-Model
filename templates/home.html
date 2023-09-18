@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000; /* Change background color to black */
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Set text color to white for better visibility on black background */
+        }
+
+        header {
+            background-color: #03A9F4;
+            border-bottom: 3px solid #448AFF;
+            padding: 20px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #brandname {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .ml-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* Ensure the content area has a white background for readability */
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        .btn-info {
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-info:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="brandname">
+                Hello Alentador
+            </div>
+            <h2>Spam Detector For SMS Messages</h2>
+        </div>
+    </header>
+
+    <div class="ml-container">
+        <form action="{{ url_for('predict')}}" method="POST">
+            <p>Enter Your Message Here</p>
+            <textarea name="message" rows="4" cols="50"></textarea>
+            <br>
+            <input type="submit" class="btn-info" value="Predict">
+        </form>
+    </div>
+</body>
+</html>
